@@ -7,3 +7,5 @@ export default function HeroSection() {
 // Adding tactical vertical watermark
 
 // Adding 3-column HUD status card
+
+// Adding Operative character with rotating rings
