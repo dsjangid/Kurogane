@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import NavigationRail from './components/NavigationRail';
 import TopStatusBar from './components/TopStatusBar';
 import HeroSection from './components/HeroSection';
@@ -17,10 +17,13 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [activeSection, setActiveSection] = useState('01');
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [modalType, setModalType] = useState(null); // 'deploy' | 'dossier' | null
+  const [modalType, setModalType] = useState(null);
   const [selectedChassisDossier, setSelectedChassisDossier] = useState(null);
 
-  // Track active section and continuous scroll progress on scroll
+  const handleLoadingComplete = useCallback(() => {
+    setIsLoading(false);
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
@@ -56,40 +59,29 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-black text-white flex font-grotesk selection:bg-[#e53e3e] selection:text-white relative">
-      {/* Minimal Initial Loading Screen (Under 2 seconds) */}
       <AnimatePresence>
         {isLoading && (
-          <LoadingScreen onComplete={() => setIsLoading(false)} />
+          <LoadingScreen onComplete={handleLoadingComplete} />
         )}
       </AnimatePresence>
 
-      {/* ========================================================================= */}
-      {/* RIGHT-SIDE CLEAN VERTICAL SCROLL TRACKER LINE (NO BOX / PURE STREAM) */}
-      {/* ========================================================================= */}
       <div className="fixed top-0 right-0 bottom-0 w-[2px] z-50 pointer-events-none flex flex-col justify-start">
-        {/* Background Vertical Guide Track */}
         <div className="absolute inset-0 bg-white/[0.08]" />
-
-        {/* Active Clean Red Line stretching top to bottom as you scroll */}
         <div
           className="w-full bg-[#e53e3e] transition-all duration-75 ease-out"
           style={{ height: `${Math.max(0.5, scrollProgress * 100)}%` }}
         />
       </div>
 
-      {/* 1. Full-Height Left Navigation Rail (Top to Bottom) */}
       <NavigationRail
         activeSection={activeSection}
         onSelectSection={scrollToSection}
         scrollProgress={scrollProgress}
       />
 
-      {/* 2. Main Content Column with Sticky Top Bar */}
       <div className="flex-1 flex flex-col min-w-0">
-        {/* Top Header Status Bar */}
         <TopStatusBar sectionTag={currentSectionData.fullTag} />
 
-        {/* Core Scrolling Content */}
         <main className="flex-1 min-w-0">
           <HeroSection
             onDeployClick={() => setModalType('deploy')}
@@ -118,9 +110,6 @@ export default function App() {
         </main>
       </div>
 
-      {/* ========================================================================= */}
-      {/* MODALS: PILOT DEPLOY TERMINAL & DOSSIER VIEWER */}
-      {/* ========================================================================= */}
       {modalType && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
           <div className="relative w-full max-w-2xl bg-[#0d0d11] border border-[#e53e3e] p-6 md:p-8 kuro-cut-card">

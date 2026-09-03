@@ -7,7 +7,7 @@ export default function LoadingScreen({ onComplete }) {
 
   useEffect(() => {
     const startTime = Date.now();
-    const duration = 1500; // 1.5 seconds
+    const duration = 1200;
 
     const interval = setInterval(() => {
       const elapsed = Date.now() - startTime;
@@ -23,18 +23,18 @@ export default function LoadingScreen({ onComplete }) {
         clearInterval(interval);
         setTimeout(() => {
           if (onComplete) onComplete();
-        }, 180);
+        }, 100);
       }
     }, 16);
 
     return () => clearInterval(interval);
-  }, [onComplete]);
+  }, []);
 
   return (
     <motion.div
       initial={{ opacity: 1 }}
-      exit={{ opacity: 0, transition: { duration: 0.35, ease: 'easeInOut' } }}
-      className="fixed inset-0 z-[100] bg-[#08080b] flex flex-col justify-between p-8 md:p-12 select-none font-mono"
+      exit={{ opacity: 0, transition: { duration: 0.25, ease: 'easeInOut' } }}
+      className="fixed inset-0 z-[100] bg-[#08080b] flex flex-col justify-between p-8 md:p-12 select-none font-mono pointer-events-auto"
     >
       {/* Top Header Tag */}
       <div className="flex items-center justify-between text-[11px] text-[#e53e3e]">
@@ -49,24 +49,20 @@ export default function LoadingScreen({ onComplete }) {
 
       {/* Center Minimal Short Loading Line & Status */}
       <div className="max-w-[260px] w-full mx-auto space-y-3 text-center">
-        {/* Small Red Text */}
         <div className="flex items-center justify-between text-[11px] tracking-widest text-[#e53e3e] font-semibold">
           <span>{statusText}</span>
           <span>{String(progress).padStart(3, '0')}%</span>
         </div>
 
-        {/* Shorter Thin Loading Progress Line */}
         <div className="w-full h-[1.5px] bg-white/10 relative overflow-hidden">
           <div
             className="h-full bg-[#e53e3e] transition-all duration-75 ease-out relative"
             style={{ width: `${progress}%` }}
           >
-            {/* White tip */}
             <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1.5 h-[2.5px] bg-white shadow-[0_0_4px_#ffffff]" />
           </div>
         </div>
 
-        {/* Coordinates subtext */}
         <div className="text-[9px] text-white/30 tracking-widest uppercase">
           35.6762°N · SECTOR 07
         </div>

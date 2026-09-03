@@ -1,9 +1,7 @@
 // Kurogane Core Data Definitions
-const baseUrl = import.meta.env.BASE_URL || '/Kurogane/';
 export const resolveAsset = (path) => {
-  const base = baseUrl.endsWith('/') ? baseUrl : baseUrl + '/';
   const clean = path.startsWith('/') ? path.slice(1) : (path.startsWith('./') ? path.slice(2) : path);
-  return base + clean;
+  return './' + clean;
 };
 
 export const kuroganeSections = [
