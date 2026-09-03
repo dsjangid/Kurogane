@@ -53,4 +53,3 @@ export default function NavigationRail({ activeSection, onSelectSection, scrollP
     </aside>
   );
 }
-// Smooth scroll anchor handlers
