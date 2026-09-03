@@ -1,5 +1,5 @@
 import React from 'react';
-import { manifestoPillars } from '../data/kuroganeData';
+import { manifestoPillars, resolveAsset } from '../data/kuroganeData';
 import ScrollReveal from './ScrollReveal';
 
 export default function ManifestSection() {
