@@ -68,41 +68,46 @@ export const weaponsData = [
     description: 'Two shots in the magazine. Both of them final.'
   },
   {
-    id: 'raijin-x',
-    name: 'RAIJIN-X ARC CAUTER',
-    damage: 65,
-    description: 'Overcharges shields until they crack from the inside.'
-  },
-  {
-    id: 'orochi-rail',
-    name: 'OROCHI HEAVY RAILGUN',
-    damage: 96,
-    description: 'Hyper-velocity solid tungsten slug. Penetrates armor and whatever is behind it.'
-  },
-  {
-    id: 'kuro-edge',
-    name: 'KURO-EDGE HIGH-FREQUENCY KATANA',
-    damage: 74,
-    description: 'Vibrates at molecular frequency to slice through composite chassis plating.'
-  },
-  {
-    id: 'hail-flare',
-    name: 'HAIL-FLARE INCENDIARY ROCKET POD',
+    id: 'oribe',
+    name: 'ORIBE SCATTERGUN',
     damage: 81,
-    description: 'Fires high-density thermite cluster rockets to suppress and melt extraction zones.'
+    description: "Close work. Built for halls you can't clean."
+  },
+  {
+    id: 'henma',
+    name: 'HENMA MARKSMAN',
+    damage: 74,
+    description: 'Foldable, accurate out to 1.1k.'
   }
 ];
 
-export const telemetryItems = [
-  { label: 'EXTRACTION ZONE DENSITY', value: '47%', sub: 'ELEVATED THREAT LEVEL' },
-  { label: 'FRAME BOND FAILURE RATE', value: '0.04%', sub: 'WITHIN SPEC' },
-  { label: 'CORRUPTED MEMORY BLOCKS', value: '182 TB', sub: 'LOGGED THIS CYCLE' },
-  { label: 'SIGNAL LATENCY TO RELAY', value: '11ms', sub: 'OPTIMAL CARRIER LOCK' }
+export const telemetryStats = [
+  { label: 'TOTAL DUELS', value: '240,118', change: '+12.4%', positive: true },
+  { label: 'AVG DUEL LENGTH', value: '1:48', change: '-5.1%', positive: false },
+  { label: 'EXTRACTION RATE', value: '38.2%', change: '+7.5%', positive: true },
+  { label: 'FRAMES LOST', value: '1.2M', change: '+15.0%', positive: true },
 ];
 
-export const specificationProtocols = [
-  { title: 'DIRECT LINK', desc: 'Neural lace bond. Sub-millisecond reaction times with zero motor latency.' },
-  { title: 'COLD-IRON HULL', desc: 'Non-conductive exterior plating invisible to standard magnetic resonance.' },
-  { title: 'EXTRACTION LOCK', desc: 'Once inside the ash, you do not leave until your core is retrieved or crushed.' },
-  { title: 'TOTAL SALVAGE', desc: 'Every frame downed is open to claim by whoever reaches the chassis first.' }
+export const manifestoPillars = [
+  {
+    number: '01',
+    title: 'PERMANENT LOSS',
+    description: 'Lose the duel and your frame is gone for good. Its parts stay in the world for someone else to pull out of the ash.'
+  },
+  {
+    number: '02',
+    title: 'BONDED PILOTS',
+    description: 'Scars, reflexes and licenses carry between machines. The hardware does not — you do.'
+  },
+  {
+    number: '03',
+    title: 'A MAP THAT MOVES',
+    description: 'Volcanic ash shifts extraction routes and opens new ones. Nobody keeps a shortcut for long.'
+  },
+  {
+    number: '04',
+    NO: '04',
+    title: 'NO TWO FRAMES',
+    description: 'Eighteen chassis, each with its own silhouette, weight class and failure state.'
+  }
 ];
