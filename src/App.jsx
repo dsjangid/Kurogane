@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavigationRail from './components/NavigationRail';
 import TopStatusBar from './components/TopStatusBar';
 import HeroSection from './components/HeroSection';
@@ -8,21 +8,14 @@ import ArsenalSection from './components/ArsenalSection';
 import TelemetrySection from './components/TelemetrySection';
 import CtaSection from './components/CtaSection';
 import FooterSection from './components/FooterSection';
-import LoadingScreen from './components/LoadingScreen';
 import { kuroganeSections } from './data/kuroganeData';
 import { X, Shield } from 'lucide-react';
-import { AnimatePresence } from 'framer-motion';
 
 export default function App() {
-  const [isLoading, setIsLoading] = useState(true);
   const [activeSection, setActiveSection] = useState('01');
   const [scrollProgress, setScrollProgress] = useState(0);
   const [modalType, setModalType] = useState(null);
   const [selectedChassisDossier, setSelectedChassisDossier] = useState(null);
-
-  const handleLoadingComplete = useCallback(() => {
-    setIsLoading(false);
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,12 +52,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-black text-white flex font-grotesk selection:bg-[#e53e3e] selection:text-white relative">
-      <AnimatePresence>
-        {isLoading && (
-          <LoadingScreen onComplete={handleLoadingComplete} />
-        )}
-      </AnimatePresence>
-
+      {/* Right-Side Clean Scroll Tracker Line */}
       <div className="fixed top-0 right-0 bottom-0 w-[2px] z-50 pointer-events-none flex flex-col justify-start">
         <div className="absolute inset-0 bg-white/[0.08]" />
         <div
@@ -73,12 +61,14 @@ export default function App() {
         />
       </div>
 
+      {/* 1. Left Navigation Rail */}
       <NavigationRail
         activeSection={activeSection}
         onSelectSection={scrollToSection}
         scrollProgress={scrollProgress}
       />
 
+      {/* 2. Main Scrolling Column */}
       <div className="flex-1 flex flex-col min-w-0">
         <TopStatusBar sectionTag={currentSectionData.fullTag} />
 
@@ -110,8 +100,9 @@ export default function App() {
         </main>
       </div>
 
+      {/* Modals */}
       {modalType && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
           <div className="relative w-full max-w-2xl bg-[#0d0d11] border border-[#e53e3e] p-6 md:p-8 kuro-cut-card">
             <button
               onClick={() => { setModalType(null); setSelectedChassisDossier(null); }}
