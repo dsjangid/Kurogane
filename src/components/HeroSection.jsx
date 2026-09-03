@@ -5,3 +5,5 @@ export default function HeroSection() {
 }
 
 // Adding tactical vertical watermark
+
+// Adding 3-column HUD status card
