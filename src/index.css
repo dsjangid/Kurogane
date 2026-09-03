@@ -3,27 +3,95 @@
 @tailwind utilities;
 
 :root {
-  --bg: #eceae4;
-  --bg-panel: #e2dfd7;
-  --bg-card: #e4e1d9;
-  --wine: #6e1a2b;
-  --wine-bright: #9e273f;
-  --wine-dark: #4d101d;
+  --kuro-red: #e53e3e;
+  --kuro-red-bright: #ff2a2a;
+  --kuro-dark: #070709;
 }
 
-:root {
-  --f-display: 'Chakra Petch', sans-serif;
-  --f-body: 'Rajdhani', sans-serif;
-  --f-mono: 'Share Tech Mono', monospace;
-  --f-sans: 'Space Grotesk', sans-serif;
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
-.grain {
-  position: fixed; inset: 0; z-index: 998; pointer-events: none; opacity: 0.028; mix-blend-mode: multiply;
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Space Grotesk', sans-serif;
+  overflow-x: hidden;
 }
-.site-grid-lines {
-  position: fixed; inset: 0; max-width: 1400px; margin: 0 auto;
-  border-left: 1px dashed rgba(184, 180, 170, 0.22);
-  border-right: 1px dashed rgba(184, 180, 170, 0.22);
-  pointer-events: none; z-index: 1;
+
+/* Hide Default Browser Scrollbars Completely */
+::-webkit-scrollbar {
+  display: none;
+  width: 0px;
+  background: transparent;
+}
+
+html, body, * {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* 45-Degree Chamfer Cuts on Top-Left */
+.kuro-section-chamfer {
+  clip-path: polygon(
+    36px 0,
+    100% 0,
+    100% 100%,
+    0 100%,
+    0 36px
+  );
+}
+
+/* HUD Corner Brackets */
+.kuro-corner-tl {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 8px;
+  height: 8px;
+  border-top: 1.5px solid #e53e3e;
+  border-left: 1.5px solid #e53e3e;
+  pointer-events: none;
+}
+.kuro-corner-tr {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 8px;
+  height: 8px;
+  border-top: 1.5px solid #e53e3e;
+  border-right: 1.5px solid #e53e3e;
+  pointer-events: none;
+}
+.kuro-corner-bl {
+  position: absolute;
+  bottom: -1px;
+  left: -1px;
+  width: 8px;
+  height: 8px;
+  border-bottom: 1.5px solid #e53e3e;
+  border-left: 1.5px solid #e53e3e;
+  pointer-events: none;
+}
+.kuro-corner-br {
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 8px;
+  height: 8px;
+  border-bottom: 1.5px solid #e53e3e;
+  border-right: 1.5px solid #e53e3e;
+  pointer-events: none;
+}
+
+/* Segmented Stat Bar */
+.stat-segment {
+  height: 4px;
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.12);
+  transition: all 0.25s ease;
+}
+.stat-segment.active {
+  background-color: #e53e3e;
 }
