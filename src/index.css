@@ -95,3 +95,8 @@ html, body, * {
 .stat-segment.active {
   background-color: #e53e3e;
 }
+
+/* Viewport refinements */
+@media (max-width: 768px) {
+  .site-wrap { padding: 0 16px; }
+}
