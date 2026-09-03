@@ -100,3 +100,6 @@ html, body, * {
 @media (max-width: 768px) {
   .site-wrap { padding: 0 16px; }
 }
+
+/* Performance asset rendering */
+img { content-visibility: auto; }
