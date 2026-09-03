@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --bg: #eceae4;
+  --bg-panel: #e2dfd7;
+  --bg-card: #e4e1d9;
+  --wine: #6e1a2b;
+  --wine-bright: #9e273f;
+  --wine-dark: #4d101d;
+}
