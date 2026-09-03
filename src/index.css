@@ -10,3 +10,10 @@
   --wine-bright: #9e273f;
   --wine-dark: #4d101d;
 }
+
+:root {
+  --f-display: 'Chakra Petch', sans-serif;
+  --f-body: 'Rajdhani', sans-serif;
+  --f-mono: 'Share Tech Mono', monospace;
+  --f-sans: 'Space Grotesk', sans-serif;
+}
