@@ -63,7 +63,7 @@ export default function ManifestSection() {
 
               <div className="aspect-[3/4] w-full overflow-hidden flex items-center justify-center mb-3">
                 <img
-                  src="/assets/manifest_ronin.png"
+                  src="./assets/manifest_ronin.png"
                   alt="Chassis Ronin Ashfall Trials"
                   className="w-full h-full object-contain"
                 />

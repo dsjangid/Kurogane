@@ -83,7 +83,7 @@ export default function HeroSection({ onDeployClick, onReadDossierClick }) {
               {/* Monitor Image Screen */}
               <div className="relative aspect-square w-full bg-black overflow-hidden border border-white/5 mb-3 [clip-path:polygon(20px_0,100%_0,100%_100%,0_100%,0_20px)]">
                 <img
-                  src={selectedFrame.image || '/assets/hero_ronin.png'}
+                  src={selectedFrame.image || './assets/hero_ronin.png'}
                   alt="Ashfall Sector 07"
                   className="w-full h-full object-cover object-top"
                 />
