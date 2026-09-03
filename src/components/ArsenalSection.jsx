@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { weaponsData } from '../data/kuroganeData';
+import { weaponsData, resolveAsset } from '../data/kuroganeData';
 import ChamferCard from './ChamferCard';
 import ScrollReveal from './ScrollReveal';
 
@@ -27,7 +27,7 @@ export default function ArsenalSection() {
             <ChamferCard cutSize={32} bgClass="bg-[#0d0d11] p-3 shadow-xl overflow-hidden">
               <div className="relative aspect-[4/3] w-full bg-black overflow-hidden border border-white/5 [clip-path:polygon(24px_0,100%_0,100%_100%,0_100%,0_24px)]">
                 <img
-                  src="./assets/arsenal_blades.png"
+                  src={resolveAsset("assets/arsenal_blades.png")}
                   alt="Forged Arsenal Blades"
                   className="w-full h-full object-cover"
                 />

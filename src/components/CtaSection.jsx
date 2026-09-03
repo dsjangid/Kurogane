@@ -1,3 +1,4 @@
+import { resolveAsset } from '../data/kuroganeData';
 import React from 'react';
 import ScrollReveal from './ScrollReveal';
 
@@ -21,7 +22,7 @@ export default function CtaSection({ onDeployClick, onWatchTrailerClick }) {
           {/* Torii Gate Background */}
           <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
             <img
-              src="./assets/arena_torii.png"
+              src={resolveAsset("assets/arena_torii.png")}
               alt="Torii Gate Arena"
               className="w-full h-full object-cover"
             />

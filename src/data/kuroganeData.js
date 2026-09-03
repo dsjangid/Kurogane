@@ -1,3 +1,11 @@
+// Kurogane Core Data Definitions
+const baseUrl = import.meta.env.BASE_URL || '/Kurogane/';
+export const resolveAsset = (path) => {
+  const base = baseUrl.endsWith('/') ? baseUrl : baseUrl + '/';
+  const clean = path.startsWith('/') ? path.slice(1) : (path.startsWith('./') ? path.slice(2) : path);
+  return base + clean;
+};
+
 export const kuroganeSections = [
   { id: '01', code: '01', title: 'DEPLOYMENT', fullTag: '01 // DEPLOYMENT' },
   { id: '02', code: '02', title: 'MANIFEST', fullTag: '02 // MANIFEST' },
@@ -13,8 +21,8 @@ export const chassisData = [
     name: 'TSUBAKI',
     kanji: '椿',
     class: 'DUELIST',
-    image: './assets/chassis_tsubaki.png',
-    thumb: './assets/thumb_tsubaki.png',
+    image: resolveAsset('assets/chassis_tsubaki.png'),
+    thumb: resolveAsset('assets/thumb_tsubaki.png'),
     speed: 8,
     armor: 3,
     range: 4,
@@ -25,8 +33,8 @@ export const chassisData = [
     name: 'IRONMASK',
     kanji: '鉄面',
     class: 'BULLWARK',
-    image: './assets/chassis_ironmask.png',
-    thumb: './assets/thumb_ironmask.png',
+    image: resolveAsset('assets/chassis_ironmask.png'),
+    thumb: resolveAsset('assets/thumb_ironmask.png'),
     speed: 2,
     armor: 10,
     range: 3,
@@ -37,8 +45,8 @@ export const chassisData = [
     name: 'SHIRO',
     kanji: '白',
     class: 'GHOST',
-    image: './assets/chassis_shiro.png',
-    thumb: './assets/thumb_shiro.png',
+    image: resolveAsset('assets/chassis_shiro.png'),
+    thumb: resolveAsset('assets/thumb_shiro.png'),
     speed: 7,
     armor: 4,
     range: 9,
@@ -60,46 +68,41 @@ export const weaponsData = [
     description: 'Two shots in the magazine. Both of them final.'
   },
   {
-    id: 'oribe',
-    name: 'ORIBE SCATTERGUN',
-    damage: 81,
-    description: "Close work. Built for halls you can't clean."
+    id: 'raijin-x',
+    name: 'RAIJIN-X ARC CAUTER',
+    damage: 65,
+    description: 'Overcharges shields until they crack from the inside.'
   },
   {
-    id: 'henma',
-    name: 'HENMA MARKSMAN',
+    id: 'orochi-rail',
+    name: 'OROCHI HEAVY RAILGUN',
+    damage: 96,
+    description: 'Hyper-velocity solid tungsten slug. Penetrates armor and whatever is behind it.'
+  },
+  {
+    id: 'kuro-edge',
+    name: 'KURO-EDGE HIGH-FREQUENCY KATANA',
     damage: 74,
-    description: 'Foldable, accurate out to 1.1k.'
+    description: 'Vibrates at molecular frequency to slice through composite chassis plating.'
+  },
+  {
+    id: 'hail-flare',
+    name: 'HAIL-FLARE INCENDIARY ROCKET POD',
+    damage: 81,
+    description: 'Fires high-density thermite cluster rockets to suppress and melt extraction zones.'
   }
 ];
 
-export const telemetryStats = [
-  { label: 'TOTAL DUELS', value: '240,118', change: '+12.4%', positive: true },
-  { label: 'AVG DUEL LENGTH', value: '1:48', change: '-5.1%', positive: false },
-  { label: 'EXTRACTION RATE', value: '38.2%', change: '+7.5%', positive: true },
-  { label: 'FRAMES LOST', value: '1.2M', change: '+15.0%', positive: true },
+export const telemetryItems = [
+  { label: 'EXTRACTION ZONE DENSITY', value: '47%', sub: 'ELEVATED THREAT LEVEL' },
+  { label: 'FRAME BOND FAILURE RATE', value: '0.04%', sub: 'WITHIN SPEC' },
+  { label: 'CORRUPTED MEMORY BLOCKS', value: '182 TB', sub: 'LOGGED THIS CYCLE' },
+  { label: 'SIGNAL LATENCY TO RELAY', value: '11ms', sub: 'OPTIMAL CARRIER LOCK' }
 ];
 
-export const manifestoPillars = [
-  {
-    number: '01',
-    title: 'PERMANENT LOSS',
-    description: 'Lose the duel and your frame is gone for good. Its parts stay in the world for someone else to pull out of the ash.'
-  },
-  {
-    number: '02',
-    title: 'BONDED PILOTS',
-    description: 'Scars, reflexes and licenses carry between machines. The hardware does not — you do.'
-  },
-  {
-    number: '03',
-    title: 'A MAP THAT MOVES',
-    description: 'Volcanic ash shifts extraction routes and opens new ones. Nobody keeps a shortcut for long.'
-  },
-  {
-    number: '04',
-    NO: '04',
-    title: 'NO TWO FRAMES',
-    description: 'Eighteen chassis, each with its own silhouette, weight class and failure state.'
-  }
+export const specificationProtocols = [
+  { title: 'DIRECT LINK', desc: 'Neural lace bond. Sub-millisecond reaction times with zero motor latency.' },
+  { title: 'COLD-IRON HULL', desc: 'Non-conductive exterior plating invisible to standard magnetic resonance.' },
+  { title: 'EXTRACTION LOCK', desc: 'Once inside the ash, you do not leave until your core is retrieved or crushed.' },
+  { title: 'TOTAL SALVAGE', desc: 'Every frame downed is open to claim by whoever reaches the chassis first.' }
 ];
