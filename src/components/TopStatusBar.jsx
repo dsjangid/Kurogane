@@ -21,3 +21,4 @@ export default function TopStatusBar({ sectionTag = '01 // DEPLOYMENT' }) {
     </header>
   );
 }
+// Mobile drawer optimization
